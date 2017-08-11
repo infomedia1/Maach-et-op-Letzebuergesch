@@ -27,7 +27,7 @@
 
 QT_BEGIN_NAMESPACE
 
-class Ui_MaachetopLtzebuergeschClass
+class Ui_MaachetopLtzebuergesch
 {
 public:
     QAction *action_import;
@@ -47,24 +47,24 @@ public:
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
 
-    void setupUi(QMainWindow *MaachetopLtzebuergeschClass)
+    void setupUi(QMainWindow *MaachetopLtzebuergesch)
     {
-        if (MaachetopLtzebuergeschClass->objectName().isEmpty())
-            MaachetopLtzebuergeschClass->setObjectName(QStringLiteral("MaachetopLtzebuergeschClass"));
-        MaachetopLtzebuergeschClass->resize(1099, 596);
+        if (MaachetopLtzebuergesch->objectName().isEmpty())
+            MaachetopLtzebuergesch->setObjectName(QStringLiteral("MaachetopLtzebuergesch"));
+        MaachetopLtzebuergesch->resize(1099, 596);
         QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(0);
-        sizePolicy.setHeightForWidth(MaachetopLtzebuergeschClass->sizePolicy().hasHeightForWidth());
-        MaachetopLtzebuergeschClass->setSizePolicy(sizePolicy);
-        MaachetopLtzebuergeschClass->setLocale(QLocale(QLocale::Luxembourgish, QLocale::Luxembourg));
-        action_import = new QAction(MaachetopLtzebuergeschClass);
+        sizePolicy.setHeightForWidth(MaachetopLtzebuergesch->sizePolicy().hasHeightForWidth());
+        MaachetopLtzebuergesch->setSizePolicy(sizePolicy);
+        MaachetopLtzebuergesch->setLocale(QLocale(QLocale::Luxembourgish, QLocale::Luxembourg));
+        action_import = new QAction(MaachetopLtzebuergesch);
         action_import->setObjectName(QStringLiteral("action_import"));
-        action_close = new QAction(MaachetopLtzebuergeschClass);
+        action_close = new QAction(MaachetopLtzebuergesch);
         action_close->setObjectName(QStringLiteral("action_close"));
-        action_about = new QAction(MaachetopLtzebuergeschClass);
+        action_about = new QAction(MaachetopLtzebuergesch);
         action_about->setObjectName(QStringLiteral("action_about"));
-        centralWidget = new QWidget(MaachetopLtzebuergeschClass);
+        centralWidget = new QWidget(MaachetopLtzebuergesch);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         gridLayoutWidget = new QWidget(centralWidget);
         gridLayoutWidget->setObjectName(QStringLiteral("gridLayoutWidget"));
@@ -96,21 +96,21 @@ public:
         btnTranslate->setObjectName(QStringLiteral("btnTranslate"));
         btnTranslate->setGeometry(QRect(500, 190, 75, 23));
         btnTranslate->setLocale(QLocale(QLocale::Luxembourgish, QLocale::Luxembourg));
-        MaachetopLtzebuergeschClass->setCentralWidget(centralWidget);
-        mMenuBar = new QMenuBar(MaachetopLtzebuergeschClass);
+        MaachetopLtzebuergesch->setCentralWidget(centralWidget);
+        mMenuBar = new QMenuBar(MaachetopLtzebuergesch);
         mMenuBar->setObjectName(QStringLiteral("mMenuBar"));
         mMenuBar->setGeometry(QRect(0, 0, 1099, 21));
         mMenu = new QMenu(mMenuBar);
         mMenu->setObjectName(QStringLiteral("mMenu"));
         mHelp = new QMenu(mMenuBar);
         mHelp->setObjectName(QStringLiteral("mHelp"));
-        MaachetopLtzebuergeschClass->setMenuBar(mMenuBar);
-        mainToolBar = new QToolBar(MaachetopLtzebuergeschClass);
+        MaachetopLtzebuergesch->setMenuBar(mMenuBar);
+        mainToolBar = new QToolBar(MaachetopLtzebuergesch);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
-        MaachetopLtzebuergeschClass->addToolBar(Qt::TopToolBarArea, mainToolBar);
-        statusBar = new QStatusBar(MaachetopLtzebuergeschClass);
+        MaachetopLtzebuergesch->addToolBar(Qt::TopToolBarArea, mainToolBar);
+        statusBar = new QStatusBar(MaachetopLtzebuergesch);
         statusBar->setObjectName(QStringLiteral("statusBar"));
-        MaachetopLtzebuergeschClass->setStatusBar(statusBar);
+        MaachetopLtzebuergesch->setStatusBar(statusBar);
 
         mMenuBar->addAction(mMenu->menuAction());
         mMenuBar->addAction(mHelp->menuAction());
@@ -119,32 +119,32 @@ public:
         mMenu->addAction(action_close);
         mHelp->addAction(action_about);
 
-        retranslateUi(MaachetopLtzebuergeschClass);
+        retranslateUi(MaachetopLtzebuergesch);
 
-        QMetaObject::connectSlotsByName(MaachetopLtzebuergeschClass);
+        QMetaObject::connectSlotsByName(MaachetopLtzebuergesch);
     } // setupUi
 
-    void retranslateUi(QMainWindow *MaachetopLtzebuergeschClass)
+    void retranslateUi(QMainWindow *MaachetopLtzebuergesch)
     {
-        MaachetopLtzebuergeschClass->setWindowTitle(QApplication::translate("MaachetopLtzebuergeschClass", "Maach et op L\303\253tzebuergesch", Q_NULLPTR));
-        action_import->setText(QApplication::translate("MaachetopLtzebuergeschClass", "Import.../", Q_NULLPTR));
-        action_close->setText(QApplication::translate("MaachetopLtzebuergeschClass", "Zou maachen", Q_NULLPTR));
-        action_about->setText(QApplication::translate("MaachetopLtzebuergeschClass", "Iwwert d'App...", Q_NULLPTR));
-        edtInput->setHtml(QApplication::translate("MaachetopLtzebuergeschClass", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+        MaachetopLtzebuergesch->setWindowTitle(QApplication::translate("MaachetopLtzebuergesch", "Maach et op Letzebuergesch", Q_NULLPTR));
+        action_import->setText(QApplication::translate("MaachetopLtzebuergesch", "Import.../", Q_NULLPTR));
+        action_close->setText(QApplication::translate("MaachetopLtzebuergesch", "Zou maachen", Q_NULLPTR));
+        action_about->setText(QApplication::translate("MaachetopLtzebuergesch", "Iwwert d'App...", Q_NULLPTR));
+        edtInput->setHtml(QApplication::translate("MaachetopLtzebuergesch", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", Q_NULLPTR));
-        edtInput->setPlaceholderText(QApplication::translate("MaachetopLtzebuergeschClass", "Input", Q_NULLPTR));
-        btnTranslate->setText(QApplication::translate("MaachetopLtzebuergeschClass", "PushButton", Q_NULLPTR));
-        mMenu->setTitle(QApplication::translate("MaachetopLtzebuergeschClass", "&Menu", Q_NULLPTR));
-        mHelp->setTitle(QApplication::translate("MaachetopLtzebuergeschClass", "H\303\253llef", Q_NULLPTR));
+        edtInput->setPlaceholderText(QApplication::translate("MaachetopLtzebuergesch", "Input", Q_NULLPTR));
+        btnTranslate->setText(QApplication::translate("MaachetopLtzebuergesch", "PushButton", Q_NULLPTR));
+        mMenu->setTitle(QApplication::translate("MaachetopLtzebuergesch", "&Menu", Q_NULLPTR));
+        mHelp->setTitle(QApplication::translate("MaachetopLtzebuergesch", "H\303\253llef", Q_NULLPTR));
     } // retranslateUi
 
 };
 
 namespace Ui {
-    class MaachetopLtzebuergeschClass: public Ui_MaachetopLtzebuergeschClass {};
+    class MaachetopLtzebuergesch: public Ui_MaachetopLtzebuergesch {};
 } // namespace Ui
 
 QT_END_NAMESPACE

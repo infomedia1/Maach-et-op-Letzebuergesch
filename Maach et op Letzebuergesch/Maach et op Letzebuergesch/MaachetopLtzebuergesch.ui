@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MaachetopLtzebuergeschClass</class>
- <widget class="QMainWindow" name="MaachetopLtzebuergeschClass">
+ <class>MaachetopLtzebuergesch</class>
+ <widget class="QMainWindow" name="MaachetopLtzebuergesch">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -17,7 +17,7 @@
    </sizepolicy>
   </property>
   <property name="windowTitle">
-   <string>Maach et op Lëtzebuergesch</string>
+   <string>Maach et op Letzebuergesch</string>
   </property>
   <property name="locale">
    <locale language="Luxembourgish" country="Luxembourg"/>
