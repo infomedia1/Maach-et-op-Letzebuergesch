@@ -5,9 +5,6 @@
     <ClCompile Include="MaachetopLtzebuergesch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GeneratedFiles\Debug\moc_MaachetopLtzebuergesch.cpp">
-      <Filter>Generated Files</Filter>
-    </ClCompile>
     <ClCompile Include="GeneratedFiles\qrc_MaachetopLtzebuergesch.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
@@ -19,6 +16,12 @@
     </ClCompile>
     <ClCompile Include="About.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_MaachetopLtzebuergesch.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_MaachetopLtzebuergesch.cpp">
+      <Filter>Generated Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

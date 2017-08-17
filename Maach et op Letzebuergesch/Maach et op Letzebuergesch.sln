@@ -4,11 +4,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Windows GUI", "Maach et op Letzebuergesch\Maach et op Letzebuergesch.vcxproj", "{B12702AD-ABFB-343A-A199-8E24837244A3}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FBEAEC6C-0F12-47CC-AD04-E61BA8817B9F} = {FBEAEC6C-0F12-47CC-AD04-E61BA8817B9F}
-	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MeoL-API", "MeoL-API\MeoL-API.vcxproj", "{FBEAEC6C-0F12-47CC-AD04-E61BA8817B9F}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MeoL-API", "MeoL-API\MeoL-API.vcxproj", "{9B96324B-5A62-46D7-9633-5A9271200980}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TranslationConnector", "TranslationConnector\TranslationConnector.vcxproj", "{9D33E41E-0DDF-4F04-9D3F-DCA26BB4E4D3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,14 +23,22 @@ Global
 		{B12702AD-ABFB-343A-A199-8E24837244A3}.Release|x64.ActiveCfg = Release|x64
 		{B12702AD-ABFB-343A-A199-8E24837244A3}.Release|x64.Build.0 = Release|x64
 		{B12702AD-ABFB-343A-A199-8E24837244A3}.Release|x86.ActiveCfg = Release|x64
-		{FBEAEC6C-0F12-47CC-AD04-E61BA8817B9F}.Debug|x64.ActiveCfg = Debug|x64
-		{FBEAEC6C-0F12-47CC-AD04-E61BA8817B9F}.Debug|x64.Build.0 = Debug|x64
-		{FBEAEC6C-0F12-47CC-AD04-E61BA8817B9F}.Debug|x86.ActiveCfg = Debug|Win32
-		{FBEAEC6C-0F12-47CC-AD04-E61BA8817B9F}.Debug|x86.Build.0 = Debug|Win32
-		{FBEAEC6C-0F12-47CC-AD04-E61BA8817B9F}.Release|x64.ActiveCfg = Release|x64
-		{FBEAEC6C-0F12-47CC-AD04-E61BA8817B9F}.Release|x64.Build.0 = Release|x64
-		{FBEAEC6C-0F12-47CC-AD04-E61BA8817B9F}.Release|x86.ActiveCfg = Release|Win32
-		{FBEAEC6C-0F12-47CC-AD04-E61BA8817B9F}.Release|x86.Build.0 = Release|Win32
+		{9B96324B-5A62-46D7-9633-5A9271200980}.Debug|x64.ActiveCfg = Debug|x64
+		{9B96324B-5A62-46D7-9633-5A9271200980}.Debug|x64.Build.0 = Debug|x64
+		{9B96324B-5A62-46D7-9633-5A9271200980}.Debug|x86.ActiveCfg = Debug|Win32
+		{9B96324B-5A62-46D7-9633-5A9271200980}.Debug|x86.Build.0 = Debug|Win32
+		{9B96324B-5A62-46D7-9633-5A9271200980}.Release|x64.ActiveCfg = Release|x64
+		{9B96324B-5A62-46D7-9633-5A9271200980}.Release|x64.Build.0 = Release|x64
+		{9B96324B-5A62-46D7-9633-5A9271200980}.Release|x86.ActiveCfg = Release|Win32
+		{9B96324B-5A62-46D7-9633-5A9271200980}.Release|x86.Build.0 = Release|Win32
+		{9D33E41E-0DDF-4F04-9D3F-DCA26BB4E4D3}.Debug|x64.ActiveCfg = Debug|x64
+		{9D33E41E-0DDF-4F04-9D3F-DCA26BB4E4D3}.Debug|x64.Build.0 = Debug|x64
+		{9D33E41E-0DDF-4F04-9D3F-DCA26BB4E4D3}.Debug|x86.ActiveCfg = Debug|Win32
+		{9D33E41E-0DDF-4F04-9D3F-DCA26BB4E4D3}.Debug|x86.Build.0 = Debug|Win32
+		{9D33E41E-0DDF-4F04-9D3F-DCA26BB4E4D3}.Release|x64.ActiveCfg = Release|x64
+		{9D33E41E-0DDF-4F04-9D3F-DCA26BB4E4D3}.Release|x64.Build.0 = Release|x64
+		{9D33E41E-0DDF-4F04-9D3F-DCA26BB4E4D3}.Release|x86.ActiveCfg = Release|Win32
+		{9D33E41E-0DDF-4F04-9D3F-DCA26BB4E4D3}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

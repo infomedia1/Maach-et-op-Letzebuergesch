@@ -23,6 +23,8 @@ protected:
 private slots:
 	void on_action_close_triggered();
 	void on_action_about_triggered();
+	void on_btnTranslate_clicked();
+	void on_btnInit_clicked();
 	void about();
 
 private:
