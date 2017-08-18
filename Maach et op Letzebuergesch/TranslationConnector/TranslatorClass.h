@@ -18,7 +18,13 @@ public:
 
 	void initTranslator(languageCode Src, languageCode Trg);
 	std::wstring translateToTarget(std::wstring InputString);
+	std::wstring getSentenceModules(std::wstring InputString);
+	std::wstring translateSentenceEasy(std::wstring InputString);
+	std::wstring cunjunctToInfin(std::wstring InputString);
+
+	bool is_verb_in_list(const std::wstring theVerb);
 
 	
 };
+
 bool operator==(translation const & a, std::wstring const & b);

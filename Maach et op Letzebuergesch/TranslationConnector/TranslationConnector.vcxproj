@@ -143,6 +143,7 @@
     <ClInclude Include="targetver.h" />
     <ClInclude Include="translation.h" />
     <ClInclude Include="TranslatorClass.h" />
+    <ClInclude Include="WordType.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="languages.cpp" />
@@ -155,6 +156,7 @@
     <ClCompile Include="translation.cpp" />
     <ClCompile Include="TranslationConnector.cpp" />
     <ClCompile Include="TranslatorClass.cpp" />
+    <ClCompile Include="WordType.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

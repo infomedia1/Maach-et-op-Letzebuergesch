@@ -52,6 +52,7 @@ int main()
 		wcout << "3 : Print Content of TranslatorClass" << endl;
 		wcout << "4 : Easy Translate Tester" << endl;
 		wcout << "5 : Sentence Analyzer" << endl;
+		wcout << "6 : Sentence Easy Translate" << endl;
 		wcout << "------------------------------------" << endl;
 		wcout << "0 : to exit the program. \t" << endl;
 		wcout << "#/> ";
@@ -83,12 +84,19 @@ int main()
 				*/
 				wstring InPut;
 				wstring OutPut;
+				wstring Comment = L"";
+				wstring Word;
+				wstring SeX;
 				wcout << L"Enter Source Word" << endl;
 				wcin >> InPut;
 				wcout << L"Enter Target Word" << endl;
 				wcin >> OutPut;
+				wcout << L"Enter WordType (noun, verb, adjective, adverb, pronoun, conjunction, determiner, excalamtion)" << endl;
+				wcin >> Word;
+				wcout << L"Enter Sexe (mas, fem)" << endl;
+				wcin >> SeX;
 				//getline(cin, OutPut);
-				translation theEmptyTranslation(InPut, OutPut);
+				translation theEmptyTranslation(InPut, OutPut, Comment, Word, SeX);
 				//theEmptyTranslation.addtranslation(InPut, OutPut);
 				theEmptyClass->translations.push_back(theEmptyTranslation);
 				int lastentry = 0;
@@ -137,9 +145,33 @@ int main()
 				break;
 			}
 			case 5:
-
+			{
+				std::wstring result;
+				std::wstring theInputString;
+				wcin.clear();
+				wcin.ignore(1000, '\n');
+				wcout << L"Enter your sentence: " << endl;
+				wcout << L":\>";
+				getline(wcin, theInputString, L'\n');
+				result = theEmptyClass->getSentenceModules(theInputString);
+				wcout << result << endl;
 				system("pause");
 				break;
+			}
+			case 6:
+			{
+				std::wstring result;
+				std::wstring theInputString;
+				wcin.clear();
+				wcin.ignore(1000, '\n');
+				wcout << L"Enter your sentence: " << endl;
+				wcout << L":\>";
+				getline(wcin, theInputString, L'\n');
+				result = theEmptyClass->translateSentenceEasy(theInputString);
+				wcout << result << endl;
+				system("pause");
+				break;
+			}
 		}
 		
 		
