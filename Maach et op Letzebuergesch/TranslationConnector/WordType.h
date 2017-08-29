@@ -2,7 +2,7 @@
 
 enum class WordType
 {
-	nil, noun, verb, adjective, adverb, pronoun, conjunction, determiner, excalamation, preposition
+	nil, noun, verb, adjective, adverb, pronoun, conjunction, determiner, excalamation, preposition, number, propernoun
 };
 
 enum class sexe
