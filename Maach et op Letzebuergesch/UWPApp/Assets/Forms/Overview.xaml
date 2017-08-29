@@ -2,13 +2,80 @@
     x:Class="UWPApp.Overview"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="using:NavigationMenu.Controls"
     xmlns:local="using:UWPApp"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="100" Margin="428,340,0,0" VerticalAlignment="Top" Width="100"/>
-        <TextBlock x:Name="dtUsername" HorizontalAlignment="Left" Margin="296,139,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="100" Margin="1680,88,0,0" VerticalAlignment="Top" Width="100"/>
+        <TextBlock x:Name="dtUsername" HorizontalAlignment="Right" Margin="10" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <ToggleButton x:Name="TogglePaneButton" 
+                      Margin="0,4,0,0" 
+                      Content="&#xE700;" 
+                      IsChecked="{Binding IsPaneOpen, ElementName=RootSplitView, Mode=TwoWay}"
+                      Unchecked="TogglePaneButton_Unchecked"
+                      Checked="TogglePaneButton_Checked"
+                      Width="48" 
+                      Height="48" 
+                      FontFamily="Segoe MDL2 Assets" 
+                      HorizontalContentAlignment="Center"
+                      VerticalContentAlignment="Center"
+                      VerticalAlignment="Top" 
+                      FontSize="16" 
+                      Canvas.ZIndex="100" />
+        <SplitView x:Name="RootSplitView" 
+                   Margin="0" 
+                   OpenPaneLength="320" 
+                   DisplayMode="Inline" 
+                   LightDismissOverlayMode="On"
+                   PaneClosed="RootSplitView_PaneClosed"
+                   IsTabStop="False" IsPaneOpen="True">
+            <SplitView.Pane>
+                <Grid x:Name="PaneContentGrid" Background="#FF292929">
+                    
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="6"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="48"/>
+                        <ColumnDefinition Width="48"/>
+                    </Grid.ColumnDefinitions>
+                    <controls:NavMenuListView x:Name="NavMenuList"
+                                              Grid.ColumnSpan="3"
+                                              TabIndex="3"
+                                              Margin="0,52,0,0" Foreground="White" Background="#FF484848"
+                                              >
+                        <ListViewItem Content="Hallo Button" Foreground="White"/>
+                    </controls:NavMenuListView>
 
+                    <Rectangle x:Name="NavPaneDivider"
+                               Grid.Row="1"
+                               Grid.ColumnSpan="3"
+                               Height="1"
+                              
+                               Margin="16,0,16,6"/>
+                    <Button x:Name="FeedbackNavPaneButton"
+                            Grid.Row="2"
+                            Grid.Column="1"
+                            
+                            Content="&#xE76E;"
+                            AutomationProperties.Name="Feedback"
+                            ToolTipService.ToolTip="Feedback" FontFamily="Segoe MDL2 Assets" Foreground="White"/>
+                    <Button x:Name="SettingsNavPaneButton"
+                            Grid.Row="2"
+                            Grid.Column="2"
+                           
+                            Content="&#xE713;"
+                            AutomationProperties.Name="Settings"
+                            ToolTipService.ToolTip="Settings" Foreground="White" FontFamily="Segoe MDL2 Assets"/>
+                </Grid>
+            </SplitView.Pane>
+            <Grid/>
+        </SplitView>
     </Grid>
 </Page>
