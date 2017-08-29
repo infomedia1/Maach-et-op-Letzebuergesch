@@ -7,9 +7,9 @@
     <ProjectGuid>{176BE335-079C-4BDC-BBD1-5A33B462A9A5}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UWPApp</RootNamespace>
-    <AssemblyName>UWPApp</AssemblyName>
-    <DefaultLanguage>en-US</DefaultLanguage>
+    <RootNamespace>MeoL</RootNamespace>
+    <AssemblyName>MeoL</AssemblyName>
+    <DefaultLanguage>lb-lu</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.15063.0</TargetPlatformVersion>
     <TargetPlatformMinVersion>10.0.15063.0</TargetPlatformMinVersion>

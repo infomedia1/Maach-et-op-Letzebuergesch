@@ -9,7 +9,7 @@
     mc:Ignorable="d">
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="100" Margin="1680,88,0,0" VerticalAlignment="Top" Width="100"/>
-        <TextBlock x:Name="dtUsername" HorizontalAlignment="Right" Margin="10" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+
         <ToggleButton x:Name="TogglePaneButton" 
                       Margin="0,4,0,0" 
                       Content="&#xE700;" 
@@ -33,7 +33,7 @@
                    IsTabStop="False" IsPaneOpen="True">
             <SplitView.Pane>
                 <Grid x:Name="PaneContentGrid" Background="#FF292929">
-                    
+
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="Auto"/>
@@ -75,7 +75,26 @@
                             ToolTipService.ToolTip="Settings" Foreground="White" FontFamily="Segoe MDL2 Assets"/>
                 </Grid>
             </SplitView.Pane>
-            <Grid/>
+            <SplitView.Content>
+
+                <CommandBar HorizontalContentAlignment="Left" >
+                    <AppBarButton Label="Nei" HorizontalContentAlignment="Left">
+                        <AppBarButton.Icon>
+                            <FontIcon Glyph="&#xE729;"/>
+                        </AppBarButton.Icon>
+                    </AppBarButton>
+                    <AppBarButton Icon="Edit" Label="Änneren"/>
+                    <AppBarButton Icon="Save" Label="Sécheren"/>
+                    <AppBarButton Label="Deelen">
+                        <AppBarButton.Icon>
+                            <FontIcon Glyph="&#xE902;"/>
+                        </AppBarButton.Icon>
+                    </AppBarButton>
+                    <AppBarButton Icon="Delete" Label="Läschen"/>
+                </CommandBar>
+            </SplitView.Content>
         </SplitView>
+        <TextBlock x:Name="dtUsername" HorizontalAlignment="Right" Margin="10,75,10,10" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+
     </Grid>
 </Page>
