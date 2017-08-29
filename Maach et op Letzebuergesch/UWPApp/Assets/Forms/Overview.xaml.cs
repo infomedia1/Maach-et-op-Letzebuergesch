@@ -144,6 +144,15 @@ namespace UWPApp
             SettingsNavPaneButton.IsTabStop = false;
         }
 
+        private void TextBlock_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            Flyout.ShowAt(dtUsername);
+        }
+
+        private void Ausloggen_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(MainPage));
+        }
 
     }
 }
