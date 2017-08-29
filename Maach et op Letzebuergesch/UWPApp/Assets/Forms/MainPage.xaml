@@ -13,7 +13,8 @@
         </Grid.Background>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" Padding="0">
             <Border Width="120" Height="120" Background="#66FFFFFF" Margin="0,0,0,10" Padding="0">
-                <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="&#xE13D;" Width="72" Height="72"  FontFamily="Segoe MDL2 Assets" Foreground="White" FontSize="72" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" LineHeight="120"/>
+                <FontIcon x:Name="textBlock" Glyph="&#xE13D;" Width="72" Height="72"  FontFamily="Segoe MDL2 Assets" Foreground="White" FontSize="72" HorizontalAlignment="Center" VerticalAlignment="Center"  />
+            
             </Border> 
             <TextBox x:Name="edtUsername" HorizontalAlignment="Center" Margin="0,5,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="320" PlaceholderText="Benotzernumm"/>
             <Grid>
