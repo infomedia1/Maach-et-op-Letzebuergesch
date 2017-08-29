@@ -9,9 +9,9 @@
     mc:Ignorable="d">
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="100" Margin="1680,88,0,0" VerticalAlignment="Top" Width="100"/>
-
+        <Rectangle Fill="Black" Height="48" Stroke="Black" VerticalAlignment="Top" Margin="48,0,0,0"/>
         <ToggleButton x:Name="TogglePaneButton" 
-                      Margin="0,4,0,0" 
+                      Margin="0" 
                       Content="&#xE700;" 
                       IsChecked="{Binding IsPaneOpen, ElementName=RootSplitView, Mode=TwoWay}"
                       Unchecked="TogglePaneButton_Unchecked"
@@ -27,7 +27,6 @@
         <SplitView x:Name="RootSplitView" 
                    Margin="0" 
                    OpenPaneLength="320" 
-                   DisplayMode="Inline" 
                    LightDismissOverlayMode="On"
                    PaneClosed="RootSplitView_PaneClosed"
                    IsTabStop="False" IsPaneOpen="True">
@@ -48,7 +47,7 @@
                     <controls:NavMenuListView x:Name="NavMenuList"
                                               Grid.ColumnSpan="3"
                                               TabIndex="3"
-                                              Margin="0,52,0,0" Foreground="White" Background="#FF484848"
+                                              Margin="0,48,0,0" Foreground="White" Background="#FF484848"
                                               >
                         <ListViewItem Content="Hallo Button" Foreground="White"/>
                     </controls:NavMenuListView>
@@ -65,36 +64,26 @@
                             
                             Content="&#xE76E;"
                             AutomationProperties.Name="Feedback"
-                            ToolTipService.ToolTip="Feedback" FontFamily="Segoe MDL2 Assets" Foreground="White"/>
+                            ToolTipService.ToolTip="Feedback" FontFamily="Segoe MDL2 Assets" Foreground="White" Padding="8"/>
                     <Button x:Name="SettingsNavPaneButton"
                             Grid.Row="2"
                             Grid.Column="2"
                            
                             Content="&#xE713;"
                             AutomationProperties.Name="Settings"
-                            ToolTipService.ToolTip="Settings" Foreground="White" FontFamily="Segoe MDL2 Assets"/>
+                            ToolTipService.ToolTip="Settings" Foreground="White" FontFamily="Segoe MDL2 Assets" Padding="8"/>
                 </Grid>
             </SplitView.Pane>
-            <SplitView.Content>
-
-                <CommandBar HorizontalContentAlignment="Left" >
-                    <AppBarButton Label="Nei" HorizontalContentAlignment="Left">
-                        <AppBarButton.Icon>
-                            <FontIcon Glyph="&#xE729;"/>
-                        </AppBarButton.Icon>
-                    </AppBarButton>
-                    <AppBarButton Icon="Edit" Label="Änneren"/>
-                    <AppBarButton Icon="Save" Label="Sécheren"/>
-                    <AppBarButton Label="Deelen">
-                        <AppBarButton.Icon>
-                            <FontIcon Glyph="&#xE902;"/>
-                        </AppBarButton.Icon>
-                    </AppBarButton>
-                    <AppBarButton Icon="Delete" Label="Läschen"/>
-                </CommandBar>
-            </SplitView.Content>
         </SplitView>
-        <TextBlock x:Name="dtUsername" HorizontalAlignment="Right" Margin="10,75,10,10" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+        <TextBlock x:Name="dtUsername" HorizontalAlignment="Right" Margin="10,14,10,10" TextWrapping="Wrap" Text="TextBlock" Tapped="TextBlock_Tapped" VerticalAlignment="Top" Foreground="White">
+             <FlyoutBase.AttachedFlyout>
+                    <MenuFlyout x:Name="Flyout">
+                        <MenuFlyout.Items>
+                            <MenuFlyoutItem Text="Ausloggen" Click="Ausloggen_Click"/>
+                        </MenuFlyout.Items>
+                    </MenuFlyout>
+    </FlyoutBase.AttachedFlyout>
+        </TextBlock>
 
     </Grid>
 </Page>
