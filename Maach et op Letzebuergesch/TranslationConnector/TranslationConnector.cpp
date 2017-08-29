@@ -132,7 +132,7 @@ int main()
 				getline(wcin,theInputString,L'\n');
 				//wcin.get();
 				
-				result = theEmptyClass->translateToTarget(theInputString);
+				result = theEmptyClass->translateToTargets(theInputString);
 				if (result.size()==1)
 				{
 					wcout << L"Keng direkt passend Iwwersätzung fonnt" << endl;

@@ -105,6 +105,26 @@ std::wstring TranslatorClass::translateToTarget(std::wstring InputString)
 	}
 }
 
+std::wstring TranslatorClass::translateToTargets(std::wstring InputString)
+{
+	std::wstring Result=L"";
+	int counter = 0;
+	//std::vector <translation>::iterator Posi;
+
+	for (std::vector <translation>::iterator Posi = translations.begin(); Posi != translations.end(); ++Posi)
+	{
+		if (Posi->returnSource() == InputString)
+		{
+			if (counter != 0) { Result = Result + L", "; }
+			else { counter = 1; }
+			Result = Result + Posi->returnTarget();
+		}
+	}
+	return Result;
+
+	//bool found = std::find(this->translations. this->translations.end(), [translations](auto item -> void{ if (item.TheSource == InputString) { Result = Result + item.TheTarget; } });
+}
+
 std::wstring TranslatorClass::getSentenceModules(std::wstring InputString)
 {
 	std::vector <translation>::iterator Posi;
@@ -187,6 +207,7 @@ std::wstring TranslatorClass::translateSentenceEasy(std::wstring InputString)
 		else {
 			tmpTarget = L"<N#F>";
 			tmpTarget = this->cunjunctToInfin(theResWord);
+			tmpTarget = this->translateToTarget(tmpTarget);
 		}
 		tmpRes = tmpRes + tmpTarget + TheDeterminer + L" ";
 	}

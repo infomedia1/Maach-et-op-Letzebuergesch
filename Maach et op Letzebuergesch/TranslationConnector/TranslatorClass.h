@@ -18,6 +18,7 @@ public:
 
 	void initTranslator(languageCode Src, languageCode Trg);
 	std::wstring translateToTarget(std::wstring InputString);
+	std::wstring translateToTargets(std::wstring InputString);
 	std::wstring getSentenceModules(std::wstring InputString);
 	std::wstring translateSentenceEasy(std::wstring InputString);
 	std::wstring cunjunctToInfin(std::wstring InputString);
