@@ -34,6 +34,7 @@ namespace UWPApp
             this.Suspending += OnSuspending;
 
             
+            
 
         }
         private AppState theAppState = new AppState();
