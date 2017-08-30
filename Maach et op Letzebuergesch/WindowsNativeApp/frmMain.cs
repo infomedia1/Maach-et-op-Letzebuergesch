@@ -1,5 +1,6 @@
 ﻿using System;
-using Novacode;
+using DocumentFormat.OpenXml.Packaging;
+using DocumentFormat.OpenXml.Validation;
 using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using W = DocumentFormat.OpenXml.Wordprocessing;
 
 
 namespace WindowsNativeApp
@@ -43,23 +45,24 @@ namespace WindowsNativeApp
         {
             DialogResult thedlgOpenRes;
             dlgOpen.FileName = "";
-
+            dlgOpen.Filter = "documents (*.docx)|*.docx";
+      
             thedlgOpenRes = dlgOpen.ShowDialog();
-            if (thedlgOpenRes==DialogResult.OK)
+            if (thedlgOpenRes == DialogResult.OK)
             {
                 //File Open
-                DocX TheFile;
-                TheFile = DocX.Load(dlgOpen.FileName);
-                TheFile.ToString();
-                foreach (Novacode.Paragraph theParagraph in TheFile.Paragraphs)
+                using (WordprocessingDocument theDocument = WordprocessingDocument.Open(dlgOpen.FileName, true))
                 {
-                    if (theParagraph.Text.Length >= 1)
+                    W.Body body = theDocument.MainDocumentPart.Document.Body;
+                    int counter = 0;
+                    foreach (W.Paragraph theParagraph in body.Elements<W.Paragraph>())
                     {
-                        reEditor.AppendText(theParagraph.Text);
-                        reEditor.AppendText("\r\n");
+                        if (counter > 0) { reEditor.AppendText("\r\n"); }
+                        reEditor.AppendText(theParagraph.InnerText);
+                        counter++;
                     }
                 }
             }
-        }
+            }
     }
 }

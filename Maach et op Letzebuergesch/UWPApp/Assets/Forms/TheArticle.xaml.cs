@@ -53,18 +53,9 @@ namespace UWPApp.Assets.Forms
                     W.Body body = theDocument.MainDocumentPart.Document.Body;
                     foreach (W.Paragraph theParagraph in body.Elements<W.Paragraph>())
                     {
-                        //
+                        // using theParagraph.innerText for each line
                     }
                 }
-/*
-                using (var fileStream = await file.OpenReadAsync())
-                {
-                    using (ZipArchive archive = new ZipArchive(fileStream.AsStream(), ZipArchiveMode.Read))
-                    {
-                        theDocument = this.GetSheet(archive)
-                    }
-                }
-                */
             }
         }
     }
