@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using W = DocumentFormat.OpenXml.Wordprocessing;
+//using TranslationConnector.TranslatorClass
 
 
 namespace WindowsNativeApp
@@ -55,14 +56,59 @@ namespace WindowsNativeApp
                 {
                     W.Body body = theDocument.MainDocumentPart.Document.Body;
                     int counter = 0;
+                    dataGrid.DataSource = null;
+
+                    dataGrid.ColumnCount = 3;
+                    dataGrid.Columns[0].Name = "ID";
+                    dataGrid.Columns[1].Name = "Source";
+                    dataGrid.Columns[2].Name = "Target";
+                    dataGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+                    dataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                    dataGrid.Columns[1].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+
                     foreach (W.Paragraph theParagraph in body.Elements<W.Paragraph>())
                     {
-                        if (counter > 0) { reEditor.AppendText("\r\n"); }
-                        reEditor.AppendText(theParagraph.InnerText);
-                        counter++;
+                        if (theParagraph.InnerText.Length >= 1)
+                        // check if it's not an empty line
+                        {
+                            counter++;
+                            //if (counter > 0) { reEditor.AppendText("\r\n"); }
+
+                            dataGrid.Rows.Add(counter, theParagraph.InnerText, " ");
+
+                           // data
+                           // dataGrid.Rows[counter].Cells[0].Value = counter;
+                           // dataGrid.Rows[counter].Cells[1].Value = theParagraph.InnerText;
+
+                            /*
+                            //Edito
+                            reEditor.ForeColor = Color.Gray;
+                            reEditor.AppendText("None");
+                            reEditor.AppendText("\r\n");
+
+                            //BaseText
+                            reEditor.SelectionBackColor = Color.LightGreen;
+                            reEditor.AppendText(theParagraph.InnerText);
+                            reEditor.AppendText("\r\n");
+
+                            //Translation
+                            reEditor.SelectionBackColor = System.Drawing.Color.Yellow;
+                            reEditor.AppendText("The empty translation");
+                            reEditor.AppendText("\r\n");
+                            */
+                            
+                        }
                     }
                 }
             }
             }
+
+        private void btnAutoTranslate_Click(object sender, EventArgs e)
+        {
+            //Autotranslate
+            TranslatorClass* theEmptyClass;
+            theEmptyClass = new TranslatorClass;
+            theEmptyClass->initTranslator(languageCode::de, languageCode::lu);
+        }
     }
 }

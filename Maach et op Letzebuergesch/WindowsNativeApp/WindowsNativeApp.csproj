@@ -109,5 +109,11 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TranslatorClass\TranslatorClass.csproj">
+      <Project>{8f4b8162-8641-49c6-86aa-68a303fef482}</Project>
+      <Name>TranslatorClass</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
