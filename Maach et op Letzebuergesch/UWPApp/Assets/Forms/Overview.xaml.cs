@@ -154,5 +154,9 @@ namespace UWPApp
             this.Frame.Navigate(typeof(MainPage));
         }
 
+        private void CommandBar_Opened(object sender, object e)
+        {
+
+        }
     }
 }

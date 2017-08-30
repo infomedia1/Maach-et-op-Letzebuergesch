@@ -74,6 +74,20 @@
                             ToolTipService.ToolTip="Settings" Foreground="White" FontFamily="Segoe MDL2 Assets" Padding="8"/>
                 </Grid>
             </SplitView.Pane>
+            <CommandBar VerticalContentAlignment="Bottom" VerticalAlignment="Bottom" Opened="CommandBar_Opened">
+                <CommandBar.Content>
+                    <Grid/>
+                </CommandBar.Content>
+                <AppBarButton Icon="Page" Label="Nei"/>
+                <AppBarButton Icon="Edit" Label="Änneren"/>
+                <AppBarButton Icon="Save" Label="Sécheren"/>
+                <AppBarButton>
+                    <AppBarButton.Icon>
+                        <FontIcon Glyph="&#xE72D;"/>
+                    </AppBarButton.Icon>
+                </AppBarButton>
+                <AppBarButton Icon="Delete" Label="Läschen"/>
+            </CommandBar>
         </SplitView>
         <TextBlock x:Name="dtUsername" HorizontalAlignment="Right" Margin="10,14,10,10" TextWrapping="Wrap" Text="TextBlock" Tapped="TextBlock_Tapped" VerticalAlignment="Top" Foreground="White">
              <FlyoutBase.AttachedFlyout>
