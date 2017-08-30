@@ -42,8 +42,10 @@
             this.dataGrid = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnAutoTranslate = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnLoadTranslation = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnAutoTranslate = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -66,7 +68,7 @@
             this.Hëllef});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(967, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1033, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -110,7 +112,7 @@
             // iwwerEisToolStripMenuItem
             // 
             this.iwwerEisToolStripMenuItem.Name = "iwwerEisToolStripMenuItem";
-            this.iwwerEisToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.iwwerEisToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.iwwerEisToolStripMenuItem.Text = "Iwwer eis...";
             this.iwwerEisToolStripMenuItem.Click += new System.EventHandler(this.iwwerEisToolStripMenuItem_Click);
             // 
@@ -131,8 +133,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel1);
-            this.splitContainer1.Size = new System.Drawing.Size(967, 455);
-            this.splitContainer1.SplitterDistance = 577;
+            this.splitContainer1.Size = new System.Drawing.Size(1033, 455);
+            this.splitContainer1.SplitterDistance = 616;
             this.splitContainer1.TabIndex = 2;
             // 
             // dataGrid
@@ -141,8 +143,9 @@
             this.dataGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGrid.Location = new System.Drawing.Point(0, 0);
             this.dataGrid.Name = "dataGrid";
-            this.dataGrid.Size = new System.Drawing.Size(577, 455);
+            this.dataGrid.Size = new System.Drawing.Size(616, 455);
             this.dataGrid.TabIndex = 1;
+            this.dataGrid.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dataGrid_MouseDown);
             // 
             // tableLayoutPanel1
             // 
@@ -158,45 +161,65 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(386, 455);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(413, 455);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.btnLoadTranslation);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btnAutoTranslate);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(187, 221);
+            this.groupBox1.Size = new System.Drawing.Size(200, 221);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 23);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(96, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Load Translations";
+            // 
+            // btnLoadTranslation
+            // 
+            this.btnLoadTranslation.Location = new System.Drawing.Point(115, 18);
+            this.btnLoadTranslation.Name = "btnLoadTranslation";
+            this.btnLoadTranslation.Size = new System.Drawing.Size(75, 23);
+            this.btnLoadTranslation.TabIndex = 2;
+            this.btnLoadTranslation.Text = "Init";
+            this.btnLoadTranslation.UseVisualStyleBackColor = true;
+            this.btnLoadTranslation.Click += new System.EventHandler(this.btnLoadTranslation_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 56);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(103, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "AutoTranslate (ALL)";
+            // 
             // btnAutoTranslate
             // 
-            this.btnAutoTranslate.Location = new System.Drawing.Point(106, 13);
+            this.btnAutoTranslate.Location = new System.Drawing.Point(115, 51);
             this.btnAutoTranslate.Name = "btnAutoTranslate";
             this.btnAutoTranslate.Size = new System.Drawing.Size(75, 23);
             this.btnAutoTranslate.TabIndex = 0;
             this.btnAutoTranslate.Text = "Translate";
             this.btnAutoTranslate.UseVisualStyleBackColor = true;
-            this.btnAutoTranslate.Click += new System.EventHandler(this.btnAutoTranslate_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label1.Location = new System.Drawing.Point(3, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "AutoTranslate";
+            this.btnAutoTranslate.Click += new System.EventHandler(this.BtnAutoTranslate_Click);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(967, 479);
+            this.ClientSize = new System.Drawing.Size(1033, 479);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -236,6 +259,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnAutoTranslate;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnLoadTranslation;
     }
 }
 

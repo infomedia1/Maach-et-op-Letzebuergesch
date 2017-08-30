@@ -10,7 +10,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.VisualBasic.FileIO;
 using W = DocumentFormat.OpenXml.Wordprocessing;
+using TranslatorClass;
+
 //using TranslationConnector.TranslatorClass
 
 
@@ -18,6 +21,9 @@ namespace WindowsNativeApp
 {
     public partial class frmMain : Form
     {
+
+        ATranslator newTranslator = new ATranslator("de", "lu");
+
         public frmMain()
         {
             InitializeComponent();
@@ -101,14 +107,64 @@ namespace WindowsNativeApp
                     }
                 }
             }
+        }
+
+        private void btnLoadTranslation_Click(object sender, EventArgs e)
+        {
+
+            TextFieldParser theParser = new TextFieldParser("lod_DE_LB.csv");
+            theParser.Delimiters = new string[] { "\t" };
+
+            string currentline = null;
+            string[] currentlineelements;
+            while ((currentline = theParser.ReadLine()) != null)
+            {
+
+                currentlineelements = currentline.Split('\t');
+
+                //skip header
+                if (theParser.LineNumber != 2)
+                {
+                    Translation newTranslation = new Translation("de", "lb", currentlineelements[0], currentlineelements[1]);
+                    newTranslator.Translations.Add(newTranslation);
+                }
             }
 
-        private void btnAutoTranslate_Click(object sender, EventArgs e)
+            Console.Write("YOLO");
+
+        }
+
+        private void BtnAutoTranslate_Click(object sender, EventArgs e)
         {
+
             //Autotranslate
-            TranslatorClass* theEmptyClass;
+            for (int i = 0; i < dataGrid.RowCount - 1; i++)
+            {
+                dataGrid.Rows[i].Cells[2].Value = newTranslator.TranslateToTargetString(dataGrid.Rows[i].Cells[1].Value.ToString());
+            }
+
+            //dataGrid.Rows[0].Cells[1].Value;
+
+            /*
+             TranslatorClass* theEmptyClass;
             theEmptyClass = new TranslatorClass;
             theEmptyClass->initTranslator(languageCode::de, languageCode::lu);
+            */
+
+            Console.Write("YOLO");
+        }
+
+
+
+   
+
+
+        private void dataGrid_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                Console.Write("YOLO");
+            }
         }
     }
 }
