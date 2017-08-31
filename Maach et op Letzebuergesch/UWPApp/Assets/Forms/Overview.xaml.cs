@@ -14,6 +14,8 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using NavigationMenu.Controls;
 using NavigationMenu;
+using UWPApp.Assets.Forms;
+using MeoL.Assets.Forms;
 //using NavigationMenu.Views;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -74,6 +76,8 @@ namespace UWPApp
         {
             AppState LeAppState = ((App)Application.Current).TheAppState;
             dtUsername.Text = LeAppState.GetUsername();
+            this.TheArticleFrame.Navigate(typeof(StartPage));
+            this.TheCommandBar.ClosedDisplayMode = AppBarClosedDisplayMode.Minimal;
         }
 
         public Rect TogglePaneButtonRect

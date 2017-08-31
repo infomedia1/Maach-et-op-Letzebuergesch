@@ -8,7 +8,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="100" Margin="1680,88,0,0" VerticalAlignment="Top" Width="100"/>
         <Rectangle Fill="Black" Height="48" Stroke="Black" VerticalAlignment="Top" Margin="48,0,0,0"/>
         <ToggleButton x:Name="TogglePaneButton" 
                       Margin="0" 
@@ -29,7 +28,7 @@
                    OpenPaneLength="320" 
                    LightDismissOverlayMode="On"
                    PaneClosed="RootSplitView_PaneClosed"
-                   IsTabStop="False" IsPaneOpen="True">
+                   IsTabStop="False" IsPaneOpen="False">
             <SplitView.Pane>
                 <Grid x:Name="PaneContentGrid" Background="#FF292929">
 
@@ -74,22 +73,14 @@
                             ToolTipService.ToolTip="Settings" Foreground="White" FontFamily="Segoe MDL2 Assets" Padding="8"/>
                 </Grid>
             </SplitView.Pane>
-            <CommandBar VerticalContentAlignment="Bottom" VerticalAlignment="Bottom" Opened="CommandBar_Opened">
-                <CommandBar.Content>
-                    <Grid/>
-                </CommandBar.Content>
-                <AppBarButton Icon="Page" Label="Nei"/>
-                <AppBarButton Icon="Edit" Label="Änneren"/>
-                <AppBarButton Icon="Save" Label="Sécheren"/>
-                <AppBarButton>
-                    <AppBarButton.Icon>
-                        <FontIcon Glyph="&#xE72D;"/>
-                    </AppBarButton.Icon>
-                </AppBarButton>
-                <AppBarButton Icon="Delete" Label="Läschen"/>
-            </CommandBar>
-        </SplitView>
-        <TextBlock x:Name="dtUsername" HorizontalAlignment="Right" Margin="10,14,10,10" TextWrapping="Wrap" Text="TextBlock" Tapped="TextBlock_Tapped" VerticalAlignment="Top" Foreground="White">
+            <SplitView.Content>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" x:Name="dtUsername" HorizontalAlignment="Right" Margin="10,14,10,10" TextWrapping="Wrap" Text="TextBlock" Tapped="TextBlock_Tapped" VerticalAlignment="Top" Foreground="White">
              <FlyoutBase.AttachedFlyout>
                     <MenuFlyout x:Name="Flyout">
                         <MenuFlyout.Items>
@@ -97,7 +88,24 @@
                         </MenuFlyout.Items>
                     </MenuFlyout>
     </FlyoutBase.AttachedFlyout>
-        </TextBlock>
-
+                    </TextBlock>
+                    <CommandBar x:Name="TheCommandBar" VerticalContentAlignment="Top" VerticalAlignment="Top" Opened="CommandBar_Opened" Grid.Row="1" Background="Black" Foreground="White" FocusVisualPrimaryBrush="#FF00DCFF">
+                        <CommandBar.Content>
+                            <Grid/>
+                        </CommandBar.Content>
+                        <AppBarButton Icon="Page" Label="Nei" Foreground="White" FocusVisualPrimaryBrush="#FF00DCFF"/>
+                        <AppBarButton Icon="Edit" Label="Änneren" Foreground="White" FocusVisualPrimaryBrush="#FF00DCFF"/>
+                        <AppBarButton Icon="Save" Label="Sécheren" Foreground="White" FocusVisualPrimaryBrush="#FF00DCFF"/>
+                        <AppBarButton Foreground="White" FocusVisualPrimaryBrush="#FF00DCFF">
+                            <AppBarButton.Icon>
+                                <FontIcon Glyph="&#xE72D;"/>
+                            </AppBarButton.Icon>
+                        </AppBarButton>
+                        <AppBarButton Icon="Delete" Label="Läschen" Foreground="White" FocusVisualPrimaryBrush="#FF00DCFF"/>
+                    </CommandBar>
+                    <Frame x:Name="TheArticleFrame" Grid.Row="3" />
+                </Grid>
+            </SplitView.Content>
+        </SplitView>
     </Grid>
 </Page>

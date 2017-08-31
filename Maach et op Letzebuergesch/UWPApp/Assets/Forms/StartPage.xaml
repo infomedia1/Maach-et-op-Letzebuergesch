@@ -1,0 +1,37 @@
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MeoL.Assets.Forms"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Controls="using:NavigationMenu.Controls"
+    x:Class="MeoL.Assets.Forms.StartPage"
+    mc:Ignorable="d">
+
+    <Grid Background="Black">
+        <StackPanel HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Orientation="Horizontal">
+
+            <StackPanel Margin="0,0,100,0">
+                <Ellipse Fill="#FF272727" Width="300" Height="300">
+                </Ellipse>
+                <TextBlock Text="Eroplueden" Foreground="White" FontSize="36" TextAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Margin="0,0,100,0">
+                <Ellipse Fill="#FF272727" Width="300" Height="300">
+                </Ellipse>
+                <TextBlock Text="Weiderschaffen" Foreground="White" FontSize="36" TextAlignment="Center"/>
+            </StackPanel>
+            <StackPanel>
+                <Ellipse Fill="#FF272727" Width="300" Height="300">
+                </Ellipse>
+                <TextBlock Text="Geheim?!" Foreground="White" FontSize="36" TextAlignment="Center"/>
+            </StackPanel>
+
+        </StackPanel>
+
+        
+
+
+
+    </Grid>
+</Page>
