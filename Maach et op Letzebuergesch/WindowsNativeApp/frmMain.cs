@@ -22,7 +22,7 @@ namespace WindowsNativeApp
     public partial class frmMain : Form
     {
 
-        ATranslator newTranslator = new ATranslator("de", "lu");
+        ATranslator newTranslator = new ATranslator("de", "lb");
 
         public frmMain()
         {
@@ -62,15 +62,28 @@ namespace WindowsNativeApp
                 {
                     W.Body body = theDocument.MainDocumentPart.Document.Body;
                     int counter = 0;
+
+                    DataGridView dataGrid = new DataGridView();
+                    dataGrid.Name = "dataGrid";
+                    dataGrid.AllowUserToAddRows = false;
+                    dataGrid.AllowUserToOrderColumns = false;
+                    splitContainer1.Panel1.Controls.Add(dataGrid);
+                    dataGrid.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dataGrid_MouseDown);
+                    
+                    dataGrid.Dock = DockStyle.Fill;
                     dataGrid.DataSource = null;
 
                     dataGrid.ColumnCount = 3;
+                    dataGrid.Columns[0].ReadOnly = true;
+                    dataGrid.Columns[1].ReadOnly = true;
+                    dataGrid.Columns[2].ReadOnly = true;
                     dataGrid.Columns[0].Name = "ID";
                     dataGrid.Columns[1].Name = "Source";
                     dataGrid.Columns[2].Name = "Target";
                     dataGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
                     dataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                     dataGrid.Columns[1].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                    dataGrid.Columns[2].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
 
                     foreach (W.Paragraph theParagraph in body.Elements<W.Paragraph>())
                     {
@@ -138,18 +151,12 @@ namespace WindowsNativeApp
         {
 
             //Autotranslate
-            for (int i = 0; i < dataGrid.RowCount - 1; i++)
+            for (int i = 0; i < ((DataGridView)this.splitContainer1.Panel1.Controls.Find("dataGrid", true)[0]).RowCount - 1; i++)
             {
-                dataGrid.Rows[i].Cells[2].Value = newTranslator.TranslateToTargetString(dataGrid.Rows[i].Cells[1].Value.ToString());
+                ((DataGridView)this.splitContainer1.Panel1.Controls.Find("dataGrid", true)[0]).Rows[i].Cells[2].Value = newTranslator.TranslateSentenceToTargetStringEasy(((DataGridView)this.splitContainer1.Panel1.Controls.Find("dataGrid", true)[0]).Rows[i].Cells[1].Value.ToString());
             }
 
             //dataGrid.Rows[0].Cells[1].Value;
-
-            /*
-             TranslatorClass* theEmptyClass;
-            theEmptyClass = new TranslatorClass;
-            theEmptyClass->initTranslator(languageCode::de, languageCode::lu);
-            */
 
             Console.Write("YOLO");
         }
@@ -164,7 +171,59 @@ namespace WindowsNativeApp
             if (e.Button == MouseButtons.Right)
             {
                 Console.Write("YOLO");
+                ContextMenuStrip myContextMenu = new System.Windows.Forms.ContextMenuStrip();
+                int position_xy_mouse_row = ((DataGridView)this.splitContainer1.Panel1.Controls.Find("dataGrid", true)[0]).HitTest(e.X, e.Y).RowIndex+1;
+
+                if (position_xy_mouse_row>=1)
+                {
+                    ((DataGridView)this.splitContainer1.Panel1.Controls.Find("dataGrid", true)[0]).ClearSelection();
+                    ((DataGridView)this.splitContainer1.Panel1.Controls.Find("dataGrid", true)[0]).Rows[position_xy_mouse_row-1].Selected = true;
+                    
+                    myContextMenu.Items.Add("Edit...").Name="EDIT " + position_xy_mouse_row.ToString();
+                    myContextMenu.Items.Add("AutoTranslate Line:" + position_xy_mouse_row.ToString()).Name = "AT "+position_xy_mouse_row.ToString();
+                }
+
+                myContextMenu.Show(this.splitContainer1.Panel1.Controls.Find("dataGrid",true)[0], new Point(e.X, e.Y));
+
+                myContextMenu.ItemClicked += new ToolStripItemClickedEventHandler(myContextMenu_ItemClicked);
+                
             }
+        }
+
+        private void myContextMenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            string TheClickEvent = e.ClickedItem.Name.ToString();
+            string[] TheClickEventArgs;
+
+            TheClickEventArgs = TheClickEvent.Split(' ');
+
+            switch (TheClickEventArgs[0])
+            {
+                case "AT":
+                    //Autotranslate Clicked
+                    //MessageBox.Show("You clicked on: "+TheClickEventArgs[1]);
+                    ((DataGridView)this.splitContainer1.Panel1.Controls.Find("dataGrid", true)[0]).Rows[Int32.Parse(TheClickEventArgs[1])-1].Cells[2].Value = newTranslator.TranslateSentenceToTargetStringEasy(((DataGridView)this.splitContainer1.Panel1.Controls.Find("dataGrid", true)[0]).Rows[Int32.Parse(TheClickEventArgs[1])-1].Cells[1].Value.ToString());
+                    break;
+                case "EDIT":
+                    //EditMode
+                    string theContent = ((DataGridView)this.splitContainer1.Panel1.Controls.Find("dataGrid", true)[0]).Rows[Int32.Parse(TheClickEventArgs[1]) - 1].Cells[1].Value.ToString();
+                    if (tableLayoutPanel1.Controls.Count > 1)
+                    {
+                        RichTextBox richEdit = (RichTextBox)tableLayoutPanel1.Controls.Find("richEdit", true)[0];
+                        richEdit.Clear();
+                        richEdit.AppendText(theContent);
+                    }
+                    else
+                    {
+                        RichTextBox richEdit = new RichTextBox();
+                        richEdit.Dock = DockStyle.Fill;
+                        richEdit.Name = "richEdit";
+                        richEdit.AppendText(theContent);
+                        tableLayoutPanel1.Controls.Add(richEdit);
+                    }
+                    break;
+            }
+
         }
     }
 }
