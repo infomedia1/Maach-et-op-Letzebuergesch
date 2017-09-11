@@ -128,6 +128,7 @@ namespace WpfApp.Pages
                 }
                 edtUsername.Text = "";
                 edtPassword.Password = "";
+                lblWrong.Visibility = Visibility.Collapsed;
             }
             e.Handled = true;
         }
@@ -136,13 +137,22 @@ namespace WpfApp.Pages
         {
             //Login check
 
-            //Login ok; save Username
-            this.Settings.Username = edtUsername.Text;
-            this.Settings.Save(UserSettingsPathFile);
+            LoginChecker thelogin = new LoginChecker();
+            Boolean loginchecktrue = thelogin.Checkpassword(edtUsername.Text, edtPassword.Password);
+            if (loginchecktrue)
+            {
+                //Login ok; save Username
+                this.Settings.Username = edtUsername.Text;
+                this.Settings.Save(UserSettingsPathFile);
 
-            //GoTo StartPage
-            this.LoginPage.NavigationService.Navigate(new StartPage());
-            
+                //GoTo StartPage
+                this.LoginPage.NavigationService.Navigate(new StartPage());
+            }
+            else
+            {
+                lblWrong.Visibility = Visibility.Visible;
+                edtPassword.Password = "";
+            }
         }
 
         private void EdtPassword_KeyUp(object sender, KeyEventArgs e)

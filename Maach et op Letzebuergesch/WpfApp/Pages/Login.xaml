@@ -33,6 +33,7 @@
                 <Button x:Name="btnLogin" Content="&#xE111;" HorizontalAlignment="Right" Margin="5,5,0,0" VerticalAlignment="Center" Width="32" Height="29" Background="#66FFFFFF" FontFamily="Segoe MDL2 Assets" Padding="4" FontWeight="Bold" FontSize="18" BorderBrush="Black" BorderThickness="1" Click="BtnLogin_Click"/>
             </Grid>
             <Frame x:Name="_NavigationFrame" />
+            <TextBlock x:Name="lblWrong" TextWrapping="Wrap" Text="Wrong username or password" Foreground="White" FontSize="16" TextAlignment="Center" Visibility="Collapsed"/>
         </StackPanel>
     </Grid>
 </Page>

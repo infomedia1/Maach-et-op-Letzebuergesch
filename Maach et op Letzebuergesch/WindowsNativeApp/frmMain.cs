@@ -58,7 +58,7 @@ namespace WindowsNativeApp
             if (thedlgOpenRes == DialogResult.OK)
             {
                 //File Open
-                using (WordprocessingDocument theDocument = WordprocessingDocument.Open(dlgOpen.FileName, true))
+                using (WordprocessingDocument theDocument = WordprocessingDocument.Open(dlgOpen.FileName, false))
                 {
                     W.Body body = theDocument.MainDocumentPart.Document.Body;
                     int counter = 0;
