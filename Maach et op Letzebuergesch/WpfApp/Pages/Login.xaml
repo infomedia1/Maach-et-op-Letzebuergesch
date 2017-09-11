@@ -1,0 +1,38 @@
+﻿<Page x:Class="WpfApp.Pages.Login"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp.Pages"
+      mc:Ignorable="d" 
+      x:Name="LoginPage"
+      d:DesignHeight="500" d:DesignWidth="700"
+      Title="Login" KeyUp="HandleEsc">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="../images/splash.png" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" >
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Grid x:Name="existingUser"><Border   Width="120" Height="120" Background="#66FFFFFF" Margin="0,0,5,10" Padding="0" MouseLeftButtonUp="ExistingUser_MouseLeftButtonUp">
+                <Label x:Name="textBlock"  FontFamily="Segoe MDL2 Assets" Foreground="White" FontSize="65" HorizontalAlignment="Center" VerticalAlignment="Center" Content="&#xE13D;" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="75"  />
+                    </Border>
+                    <Label x:Name="username" Content="%USERNAME%" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" Margin="0,0,0,10" FontFamily="Segoe UI Light" Foreground="White" FontSize="16"/>
+                </Grid>
+
+                <Grid x:Name="newUser"><Border Width="120" Height="120" Background="#66FFFFFF" Margin="0,0,0,10" Padding="0" MouseLeftButtonUp="NewUser_MouseLeftButtonUp">
+                        <Label x:Name="textBlock2"  FontFamily="Segoe MDL2 Assets" Foreground="White" FontSize="65" HorizontalAlignment="Center" VerticalAlignment="Center" Content="&#xE13D;" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="75"  />
+                    </Border>
+                    <Label Content="+other" VerticalAlignment="Bottom" HorizontalContentAlignment="Center" Margin="0,0,0,10" FontFamily="Segoe UI Light" Foreground="White" FontSize="16"/>
+                </Grid>
+            </StackPanel>
+            <TextBox x:Name="edtUsername" HorizontalAlignment="Center" Margin="0,5,0,0" TextWrapping="Wrap" Width="320" Height="29" VerticalAlignment="Top" FontSize="18" VerticalContentAlignment="Center" Background="#CCFFFFFF" Padding="10,0,0,0" />
+            <Grid>
+                <PasswordBox x:Name="edtPassword" HorizontalAlignment="Left" Margin="0,5,35,0" VerticalAlignment="Center" Width="284"  Padding="10,0" Height="29" VerticalContentAlignment="Center" Background="#CCFFFFFF" KeyUp="EdtPassword_KeyUp" />
+                <Button x:Name="btnLogin" Content="&#xE111;" HorizontalAlignment="Right" Margin="5,5,0,0" VerticalAlignment="Center" Width="32" Height="29" Background="#66FFFFFF" FontFamily="Segoe MDL2 Assets" Padding="4" FontWeight="Bold" FontSize="18" BorderBrush="Black" BorderThickness="1" Click="BtnLogin_Click"/>
+            </Grid>
+            <Frame x:Name="_NavigationFrame" />
+        </StackPanel>
+    </Grid>
+</Page>

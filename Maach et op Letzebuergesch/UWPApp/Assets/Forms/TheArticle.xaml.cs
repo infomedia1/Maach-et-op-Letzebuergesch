@@ -20,43 +20,83 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 using W = DocumentFormat.OpenXml.Wordprocessing;
+using System.Threading.Tasks;
+using Windows.UI.Core;
+using Windows.UI.Popups;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace UWPApp.Assets.Forms
+namespace MeoL.Assets.Forms
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
     public sealed partial class TheArticle : Page
     {
+        public string FilePath = null;
         public TheArticle()
         {
             this.InitializeComponent();
+            AppState LeAppState = ((App)Application.Current).TheAppState;
+            this.FilePath = LeAppState.GetOpenFilePath();
+            this.HeaderText.Text = this.FilePath;
+
+            this.
+
+            ShowLoadingIndicator(true);
+             /*var t = Task.Run(() => InitWFile(this.FilePath));
+             t.Wait();
+             */
+            //InitWFile(this.FilePath);
         }
 
-        public async System.Threading.Tasks.Task InitWFileAsync(string theFilepath)
+        public void InitWFile(string theFilepath)
         {
-            FileOpenPicker opener = new FileOpenPicker();
-            opener.FileTypeFilter.Add(".docx");
+            // XmlDocument theDocument = null;
 
-            StorageFile file = await opener.PickSingleFileAsync();
-            if (file != null)
-            {
-                // XmlDocument theDocument = null;
+            var fileInfo = new FileInfo(theFilepath);
 
-                var fileInfo = new FileInfo(file.Name);
+            string tempFile = Path.GetTempPath();
 
-                using (WordprocessingDocument theDocument = WordprocessingDocument.Open(fileInfo.FullName, true))
+            Task T = Task.Run(() => { System.IO.File.Copy(fileInfo.FullName, tempFile + ".docx"); });
+
+
+            Task T2 = Task.Run(() => { WordprocessingDocument theDocument = WordprocessingDocument.Open(fileInfo.FullName, false);
+                W.Body body = theDocument.MainDocumentPart.Document.Body;
+                foreach (W.Paragraph theParagraph in body.Elements<W.Paragraph>())
                 {
-                    //OK
-                    W.Body body = theDocument.MainDocumentPart.Document.Body;
-                    foreach (W.Paragraph theParagraph in body.Elements<W.Paragraph>())
-                    {
-                        // using theParagraph.innerText for each line
-                    }
+                    // using theParagraph.innerText for each line
                 }
+            });
+            //using (WordprocessingDocument theDocument = WordprocessingDocument.Open(fileInfo.FullName, false))
+
+            //OK
+            
+            
+        }
+
+
+        public void ShowLoadingIndicator(Boolean isShown)
+        {
+
+            LoadingIndicator.Name = "LoadingIndicator";
+            this.LoadingIndicator.IsActive = isShown;
+
+        }
+
+        public static class MsgBox
+        {
+            static public async void Show(string mytext, string title)
+            {
+                var dialog = new MessageDialog(mytext, title);
+                await dialog.ShowAsync();
             }
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            //MsgBox.Show("LOKIII", "Loaded");
+            InitWFile(FilePath);
         }
     }
 }

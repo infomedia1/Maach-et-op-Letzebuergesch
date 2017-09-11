@@ -12,8 +12,13 @@
         <StackPanel HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" Orientation="Horizontal">
 
             <StackPanel Margin="0,0,100,0">
-                <Ellipse Fill="#FF272727" Width="300" Height="300">
-                </Ellipse>
+                <Button Click="BtnUpload_Click">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Ellipse Fill="#FF272727" Width="300" Height="300"/>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
                 <TextBlock Text="Eroplueden" Foreground="White" FontSize="36" TextAlignment="Center"/>
             </StackPanel>
             <StackPanel Margin="0,0,100,0">
@@ -29,7 +34,7 @@
 
         </StackPanel>
 
-        
+
 
 
 

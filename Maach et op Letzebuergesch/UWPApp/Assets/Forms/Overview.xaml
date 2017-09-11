@@ -1,13 +1,13 @@
 ﻿<Page x:Name="OverviewPage"
-    x:Class="UWPApp.Overview"
+    x:Class="MeoL.Overview"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:controls="using:NavigationMenu.Controls"
-    xmlns:local="using:UWPApp"
+    xmlns:local="using:MeoL"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid x:Name="MainGrid" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Rectangle Fill="Black" Height="48" Stroke="Black" VerticalAlignment="Top" Margin="48,0,0,0"/>
         <ToggleButton x:Name="TogglePaneButton" 
                       Margin="0" 
@@ -74,7 +74,7 @@
                 </Grid>
             </SplitView.Pane>
             <SplitView.Content>
-                <Grid>
+                <Grid x:Name="PageGrid">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                         <RowDefinition Height="Auto"/>
@@ -89,7 +89,7 @@
                     </MenuFlyout>
     </FlyoutBase.AttachedFlyout>
                     </TextBlock>
-                    <CommandBar x:Name="TheCommandBar" VerticalContentAlignment="Top" VerticalAlignment="Top" Opened="CommandBar_Opened" Grid.Row="1" Background="Black" Foreground="White" FocusVisualPrimaryBrush="#FF00DCFF">
+                    <CommandBar x:Name="TheCommandBar" x:FieldModifier="public" VerticalContentAlignment="Top" VerticalAlignment="Top" Opened="CommandBar_Opened" Grid.Row="1" Background="Black" Foreground="White" FocusVisualPrimaryBrush="#FF00DCFF">
                         <CommandBar.Content>
                             <Grid/>
                         </CommandBar.Content>

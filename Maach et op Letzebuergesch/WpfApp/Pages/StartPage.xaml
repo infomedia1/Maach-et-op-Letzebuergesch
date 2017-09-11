@@ -1,0 +1,36 @@
+﻿<Page x:Class="WpfApp.Pages.StartPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfApp.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="StartPage">
+
+    <Grid Margin="0,0,0,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+            <Rectangle x:Name="SideBar" Width="100" VerticalAlignment="Stretch" Fill="#99000000"/>
+            <Button Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" Width="32" Height="32" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Right" Background="White" Click="ExpandButton_Click">&lt;</Button>
+
+        <Grid></Grid>
+        <Grid Grid.Column="1" >
+            <Rectangle Height="30" VerticalAlignment="Top" />
+            <Label x:Name="username" VerticalAlignment="Top" Content="%USERNAME%" HorizontalContentAlignment="Right">
+                <Label.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Logout">
+                            <MenuItem.Icon>
+                                <Image Source="/Images/splash.png" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                    </ContextMenu>
+                </Label.ContextMenu>
+            </Label>
+        </Grid>
+    </Grid>
+</Page>
