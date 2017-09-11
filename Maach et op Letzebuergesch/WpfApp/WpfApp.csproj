@@ -223,5 +223,8 @@
   <ItemGroup>
     <SplashScreen Include="Images\SplashScreen.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon-docx.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

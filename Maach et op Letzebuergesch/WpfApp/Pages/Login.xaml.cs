@@ -153,6 +153,7 @@ namespace WpfApp.Pages
                 lblWrong.Visibility = Visibility.Visible;
                 edtPassword.Password = "";
             }
+             //= "Wëllkomm " + this.Settings.Username;
         }
 
         private void EdtPassword_KeyUp(object sender, KeyEventArgs e)

@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
       x:Name="LoginPage"
       d:DesignHeight="500" d:DesignWidth="700"
-      Title="Login" KeyUp="HandleEsc">
+      Title="Login Window" KeyUp="HandleEsc">
 
     <Grid>
         <Grid.Background>

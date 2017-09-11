@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfApp"
         mc:Ignorable="d"
         x:Name="_MainWindow"
-        Title="Login Window" WindowStartupLocation="CenterScreen">
+        Title="{Binding ElementName=_mainFrame, Path=Content.Title}" WindowStartupLocation="CenterScreen">
     <Grid x:Name="theContent">
         <Frame x:Name="_mainFrame" NavigationUIVisibility="Hidden"/>
 
